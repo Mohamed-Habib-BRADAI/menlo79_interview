@@ -14,11 +14,12 @@ export class EditComponent implements OnInit {
   serviceObj: ServiceModel | any = new ServiceModel();
   submitted = false;
   form: FormGroup;
+
   formErrors = {
-    id: '',
     name: '',
     startDate: ''
   };
+  serviceId: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -31,10 +32,9 @@ export class EditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let serviceId = this.route.snapshot.paramMap.get('id') || '';
-    this.serviceObj = this.service.getService(serviceId);
+    this.serviceId = this.route.snapshot.paramMap.get('id') || '';
+    this.serviceObj = this.service.getService(this.serviceId);
     this.form = this.formBuilder.group({
-      id: [this.serviceObj ? this.serviceObj.id : ''],
       name: [
         this.serviceObj ? this.serviceObj.name : '',
         [Validators.required, Validators.minLength(6), Validators.maxLength(20)]
@@ -52,8 +52,12 @@ export class EditComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    this.service.updateService(this.form.value);
-    this.router.navigate(['service', 'details', this.form.value.id]);
+    let service = this.form.value;
+    service.id = this.serviceId;
+    service.startDate =
+      typeof service.startDate === 'object' ? service.startDate.toISOString().split('T')[0] : service.startDate;
+    this.serviceId = this.service.updateService(service);
+    this.router.navigate(['service', 'details', this.serviceId]);
   }
   onReset(): void {
     this.submitted = false;
@@ -61,7 +65,6 @@ export class EditComponent implements OnInit {
   }
   createFormGroup() {
     return new FormGroup({
-      id: new FormControl(''),
       name: new FormControl(''),
       startDate: new FormControl('')
     });

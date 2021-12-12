@@ -31,7 +31,7 @@ export class ServiceService {
       this.services.next(data);
     });
   }
-  updateService(service: ServiceModel) {
+  updateService(service: ServiceModel): string {
     let services = this.services.value;
     service.id = service.id ? service.id : this.createId().toString();
     let objIndex = services.findIndex((obj) => obj.id == service.id);
@@ -41,6 +41,7 @@ export class ServiceService {
       services.push(service);
     }
     this.services.next(services);
+    return service.id;
   }
   createId() {
     let services = this.services.value;
