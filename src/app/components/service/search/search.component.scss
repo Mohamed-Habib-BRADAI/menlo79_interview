@@ -1,3 +1,9 @@
+.table-container {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
 table {
   width: 100%;
 }
@@ -20,4 +26,8 @@ tr.element-row:hover {
 .element-detail {
   overflow: hidden;
   display: flex;
+}
+.table-actions {
+  margin: auto;
+  margin-top: 20px;
 }

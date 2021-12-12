@@ -1,13 +1,23 @@
-.example-container {
-  text-align: center;
-}
-
 .form-container {
-  width: 400 px;
-  margin: 0 px auto;
-  margin-top: 200 px;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+form {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-field {
   display: block;
+}
+.edit-action {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
 }

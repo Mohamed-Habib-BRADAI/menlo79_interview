@@ -10,3 +10,11 @@ mat-nav-list {
   justify-content: space-between;
   column-gap: 20px;
 }
+button {
+  border: none;
+  background-color: transparent;
+  font-size: 40px;
+}
+button:hover {
+  border-left: solid 3px #32de84;
+}
