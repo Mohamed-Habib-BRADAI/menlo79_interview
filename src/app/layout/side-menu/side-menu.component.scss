@@ -1,0 +1,12 @@
+.sidenav {
+  height: 100%;
+  width: 40px;
+}
+.side-nav-container {
+  height: 100%;
+}
+
+mat-nav-list {
+  justify-content: space-between;
+  column-gap: 20px;
+}

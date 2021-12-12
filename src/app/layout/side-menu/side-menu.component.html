@@ -1,0 +1,17 @@
+<mat-sidenav-container class="side-nav-container" autosize>
+  <mat-sidenav #sidenav class="sidenav" mode="side" opened="true">
+    <mat-nav-list>
+      <button><mat-icon mat-list-icon>home</mat-icon></button>
+      <button><mat-icon mat-list-icon>settings_input_antenna</mat-icon></button>
+      <button [routerLink]="'service'">
+        <mat-icon mat-list-icon>call_split</mat-icon>
+      </button>
+
+      <button><mat-icon mat-list-icon>assignment</mat-icon></button>
+      <button><mat-icon mat-list-icon>supervisor_account</mat-icon></button>
+      <button><mat-icon mat-list-icon>tram</mat-icon></button>
+      <button><mat-icon mat-list-icon>business</mat-icon></button>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content> <ng-content></ng-content></mat-sidenav-content>
+</mat-sidenav-container>
