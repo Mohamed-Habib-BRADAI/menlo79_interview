@@ -1,0 +1,28 @@
+<div class="example-container">
+  <div class="form-container">
+    <form [formGroup]="form" (submit)="onSubmit()">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Name </mat-label>
+        <input matInput formControlName="name" required />
+        <mat-error *ngIf="f['name'].touched && f['name'].invalid">
+          <span *ngIf="f['name'].errors && f['name'].errors['required']">This field is mandatory.</span>
+          <span *ngIf="f['name'].errors && f['name'].errors['pattern']">This field is invalid.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Start Date </mat-label>
+        <input matInput formControlName="startDate" [matDatepicker]="picker" required />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="f['startDate'].touched && f['startDate'].invalid">
+          <span *ngIf="f['startDate'].errors && f['startDate'].errors['required']">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Create</button>
+      <button mat-raised-button (click)="onReset()" color="primary">Reset</button>
+      <button mat-raised-button (click)="back()" color="primary">Cancel</button>
+    </form>
+  </div>
+</div>
+view raw

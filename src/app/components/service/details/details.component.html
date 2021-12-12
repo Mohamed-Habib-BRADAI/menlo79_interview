@@ -1,0 +1,20 @@
+<div class="details-list">
+  <mat-list role="list">
+    <mat-list-item role="listitem"
+      ><div matLine>Id</div>
+      <div>{{ serviceObj.id }}</div>
+    </mat-list-item>
+    <mat-list-item role="listitem"
+      ><div matLine>Name</div>
+      <div>{{ serviceObj.name }}</div>
+    </mat-list-item>
+    <mat-list-item role="listitem"
+      ><div matLine>Start Date</div>
+      <div>{{ serviceObj.startDate }}</div></mat-list-item
+    >
+  </mat-list>
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="edit()">Edit</button>
+    <button mat-raised-button color="primary" (click)="back()" style="margin-left: 35px">Back</button>
+  </div>
+</div>
