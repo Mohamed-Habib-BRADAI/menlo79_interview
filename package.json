@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "p:fix": " prettier --config ./.prettierrc --write \"src/{app,environment}/**/{.ts,.scss,.html}\"",
-    "p:verify": " prettier --config ./.prettierrc --list-different \"src/{app.environment}/**/{.ts,.scss,.html}\""
+    "p:fix": " prettier --config ./.prettierrc --write \"src/{app,environments}/**/*{.ts,.scss,.html}\"",
+    "p:verify": " prettier --config ./.prettierrc --list-different \"src/{app.environments}/**/*{.ts,.scss,.html}\""
   },
   "husky": {
     "hooks": {
