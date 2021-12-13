@@ -2,15 +2,15 @@
   <mat-list role="list">
     <mat-list-item role="listitem"
       ><div matLine>Id</div>
-      <div>{{ serviceObj.id }}</div>
+      <div>{{ serviceObj ? serviceObj.id : '' }}</div>
     </mat-list-item>
     <mat-list-item role="listitem"
       ><div matLine>Name</div>
-      <div>{{ serviceObj.name }}</div>
+      <div>{{ serviceObj ? serviceObj.name : '' }}</div>
     </mat-list-item>
     <mat-list-item role="listitem"
       ><div matLine>Start Date</div>
-      <div>{{ serviceObj.startDate }}</div></mat-list-item
+      <div>{{ serviceObj ? serviceObj.startDate : '' }}</div></mat-list-item
     >
   </mat-list>
   <div class="actions">

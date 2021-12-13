@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceModel } from 'src/app/models/service.model';
 import { ServiceService } from 'src/app/services/service.service';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-details',
@@ -12,12 +11,7 @@ import { Location } from '@angular/common';
 export class DetailsComponent implements OnInit {
   serviceObj: ServiceModel | any = new ServiceModel();
 
-  constructor(
-    private route: ActivatedRoute,
-    private service: ServiceService,
-    private location: Location,
-    private router: Router
-  ) {}
+  constructor(private route: ActivatedRoute, private service: ServiceService, private router: Router) {}
 
   ngOnInit(): void {
     let serviceId = this.route.snapshot.paramMap.get('id') || '';
