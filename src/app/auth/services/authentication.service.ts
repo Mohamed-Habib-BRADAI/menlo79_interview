@@ -9,11 +9,11 @@ export class AuthenticationService {
   isLogged: boolean = false;
   constructor(public auth: AuthService, @Inject(DOCUMENT) private doc: Document) {}
 
-  signUpWithRedirect() {
-    this.auth.loginWithRedirect({ screen_hint: 'signup' });
-  }
   loginWithRedirect() {
     this.auth.loginWithRedirect();
+    this.auth.user$.subscribe((data) => {
+      console.log(data);
+    });
   }
   isLoggedIn(): Observable<boolean> {
     return this.auth.isAuthenticated$;
@@ -21,7 +21,9 @@ export class AuthenticationService {
   logout() {
     this.auth.logout({ returnTo: this.doc.location.origin });
   }
-  getUserInfo() {}
+  getUserInfo() {
+    return this.auth.user$;
+  }
   isLoading(): Observable<Boolean> {
     return this.auth.isLoading$;
   }
