@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<div class="container" *ngIf="authenticationService.isLoading() | async; else loaded">
+  <mat-spinner></mat-spinner>
+</div>
+<ng-template #loaded> <router-outlet></router-outlet> </ng-template>
